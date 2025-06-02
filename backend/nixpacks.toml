@@ -1,0 +1,20 @@
+# nixpacks.toml for Backend
+providers = ["python"]
+
+[variables]
+PYTHONPATH = "/app"
+FLASK_APP = "api.py"
+FLASK_ENV = "production"
+
+[phases.setup]
+nixPkgs = ["python311", "python311Packages.pip"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[phases.build]
+cmds = ["echo 'Backend build completed'"]
+
+[start]
+cmd = "gunicorn --bind 0.0.0.0:5000 api:app"
+

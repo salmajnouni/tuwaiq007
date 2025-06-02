@@ -1,0 +1,6 @@
+flask
+Pillow
+boto3
+flask-cors
+gunicorn
+

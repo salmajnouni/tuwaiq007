@@ -1,0 +1,19 @@
+# nixpacks.toml for Frontend
+providers = ["node"]
+
+[variables]
+NODE_ENV = "production"
+REACT_APP_API_URL = "http://localhost:5000"
+
+[phases.setup]
+nixPkgs = ["nodejs_18", "npm"]
+
+[phases.install]
+cmds = ["npm install"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npx serve -s build -l 3000"
+
